@@ -4,8 +4,8 @@
 
 @font-face {
     font-family: 'nexa_rust_slabblack_shadow_01';
-    src: font_url('nexarustslab-blackshadow01-free-webfont.woff2') format('woff2'),
-         font_url('nexarustslab-blackshadow01-free-webfont.woff') format('woff');
+    src: url('nexarustslab-blackshadow01-free-webfont.woff2') format('woff2'),
+         url('nexarustslab-blackshadow01-free-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 
