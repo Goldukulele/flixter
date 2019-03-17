@@ -1,5 +1,5 @@
 class Instructor::CoursesController < ApplicationController
-before_action :authenticate_user!
+  before_action :authenticate_user!
 
   def new
     @course = Course.new
@@ -7,7 +7,11 @@ before_action :authenticate_user!
 
   def create
     @course = current_user.courses.create(course_params)
-    redirect_to instructor_course_path(@course)
+    if @course.valid?
+      redirect_to instructor_course_path(@course)
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def show
