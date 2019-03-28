@@ -1,4 +1,6 @@
 class Course < ApplicationRecord
+  mount_uploader :image, ImageUploader
+
   belongs_to :user
   has_many :sections
   has_many :enrollments
@@ -8,6 +10,13 @@ class Course < ApplicationRecord
   validates :cost, presence: true, numericality: {greater_than_or_equal_to: 0}
   validates :image, presence: true
 
-  mount_uploader :image, ImageUploader
+  def free?
+    cost.zero?
+  end
+
+  def premium?
+    ! free?
+  end
+
 end
 
